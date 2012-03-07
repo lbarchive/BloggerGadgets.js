@@ -21,21 +21,33 @@
   </div>
 </b:includable>
 <b:includable id='flat' var='data'>
-  <ul class='flat'>
-    <b:loop values='data:data' var='i'>
-      <li class='archivedate'>
-        <a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)
-      </li>
-    </b:loop>
-  </ul>
+  <script>
+    (function(){
+      function _(href, text, count) {
+        var $li = $('<li/>', {class: 'archivedate'})
+            .append($('<a/>', {href: href, text: text}))
+            .append(' (' + count + ')');
+        return $li;
+        }
+      $('<ul/>', {class: 'flat'})<b:loop values='data:data' var='i'>
+        .append(_("<data:i.url/>", "<data:i.name/>", <data:i.post-count/>))</b:loop>
+        .appendTo($("#<data:widget.instanceId/>_ArchiveList"));
+    })();
+  </script>
 </b:includable>
 <b:includable id='menu' var='data'>
   <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
     <option value=''><data:title/></option>
-    <b:loop values='data:data' var='i'>
-      <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
-    </b:loop>
   </select>
+  <script>
+    (function(){
+      function _(href, text, count) {
+        return $('<option/>', {value: href, text: text + ' (' + count + ')'})
+        }
+      $("#<data:widget.instanceId/>_ArchiveMenu")<b:loop values='data:data' var='i'>
+        .append(_("<data:i.url/>", "<data:i.name/>", <data:i.post-count/>))</b:loop>;
+    })();
+  </script>
 </b:includable>
 <b:includable id='interval' var='intervalData'>
   <b:loop values='data:intervalData' var='i'>

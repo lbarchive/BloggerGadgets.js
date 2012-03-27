@@ -9,7 +9,7 @@
             <script>
               (function(){
                 function _(href, title) {
-                  return $('<a/>', {href: href, text: title});
+                  return $('<a/>', {href: href, html: title});
                 }
                 $("#<data:widget.instanceId/>_PopularPosts")<b:loop values='data:posts' var='post'>
                   .append($('<li/>').append(_("<data:post.href/>", "<data:post.title/>")))</b:loop>
@@ -21,10 +21,10 @@
               (function(){
                 function _(href, title) {
                   return $('<div/>', {class: 'item-title'})
-                         .append($('<a/>', {href: href, text: title}));
+                         .append($('<a/>', {href: href, html: title}));
                 }
                 function _s(snippet) {
-                  return $('<div/>', {class: 'item-snippet', text: snippet});
+                  return $('<div/>', {class: 'item-snippet', html: snippet});
                 }
                 $("#<data:widget.instanceId/>_PopularPosts")<b:loop values='data:posts' var='post'>
                   .append($('<li/>').append(_("<data:post.href/>", "<data:post.title/>"), _s("<data:post.snippet/>")))</b:loop>
@@ -38,7 +38,7 @@
               (function(){
                 function _(href, title) {
                   return $('<div/>', {class: 'item-title'})
-                         .append($('<a/>', {href: href, text: title}));
+                         .append($('<a/>', {href: href, html: title}));
                 }
                 function _thumb(href, height, width, src) {
                   var $a = $('<a/>', {href: href, target: '_blank'})
@@ -46,7 +46,7 @@
                   return $('<div/>', {class: 'item-thumbnail'}).append($a);
                 }
                 function _s(snippet) {
-                  return $('<div/>', {class: 'item-snippet', text: snippet});
+                  return $('<div/>', {class: 'item-snippet', html: snippet});
                 }
                 $("#<data:widget.instanceId/>_PopularPosts")<b:loop values='data:posts' var='post'>
                   .append($('<div/>', {class: 'item-thumbnail-only'})
@@ -62,7 +62,7 @@
               (function(){
                 function _(href, title) {
                   return $('<div/>', {class: 'item-title'})
-                         .append($('<a/>', {href: href, text: title}));
+                         .append($('<a/>', {href: href, html: title}));
                 }
                 function _thumb(href, height, width, src) {
                   var $a = $('<a/>', {href: href, target: '_blank'})
@@ -70,7 +70,7 @@
                   return $('<div/>', {class: 'item-thumbnail'}).append($a);
                 }
                 function _s(snippet) {
-                  return $('<div/>', {class: 'item-snippet', text: snippet});
+                  return $('<div/>', {class: 'item-snippet', html: snippet});
                 }
                 $("#<data:widget.instanceId/>_PopularPosts")<b:loop values='data:posts' var='post'>
                   .append($('<div/>', {class: 'item-content'})

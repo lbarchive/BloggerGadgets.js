@@ -59,6 +59,12 @@ function draw_BlogArchiveBar() {
     }
   }
   $.extend(true, options, window.BlogArchiveBarOptions);
+  // Process gadget options
+  if (options.BlogArchiveBar) {
+    if (options.BlogArchiveBar.bar_width)
+      options.width = options.bar_width * items.length;
+    options.BlogArchiveBar = undefined;
+    }
 
   var chart = new google.visualization.ColumnChart(document.getElementById('BlogArchiveBarChart'));
   google.visualization.events.addListener(chart, 'select', function(){

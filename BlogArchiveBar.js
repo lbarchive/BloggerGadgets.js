@@ -62,7 +62,7 @@ function draw_BlogArchiveBar() {
   // Process gadget options
   if (options.BlogArchiveBar) {
     if (options.BlogArchiveBar.bar_width)
-      options.width = options.BlogArchive.bar_width * items.length;
+      options.width = options.BlogArchiveBar.bar_width * items.length;
     options.BlogArchiveBar = undefined;
     }
 

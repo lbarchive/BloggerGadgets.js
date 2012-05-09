@@ -1,0 +1,31 @@
+<b:widget id='BlogArchive1' locked='false' title='Blog Archive' type='BlogArchive'>
+<b:includable id='main'>
+  <b:if cond='data:title'>
+    <h2><data:title/></h2>
+  </b:if>
+  <div class='widget-content'>
+  <div id='ArchiveList'>
+  <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+    <b:if cond='data:style == &quot;FLAT&quot;'>
+      <b:include data='data' name='bar'/>
+    </b:if>
+    <b:if cond='data:style == &quot;MENU&quot;'>
+      <b:include data='data' name='bar'/>
+    </b:if>
+  </div>
+  </div>
+  <b:include name='quickedit'/>
+  </div>
+</b:includable>
+<b:includable id='bar' var='data'>
+  <script>
+    var BlogArchiveBarItems = [
+      <b:loop values='data:data' var='i'>[&quot;<data:i.name/>&quot;, <data:i.post-count/>, &quot;<data:i.url/>&quot;],
+</b:loop>
+      [undefined, undefined, undefined]];
+    BlogArchiveBarItems.pop();
+  </script>
+  <script expr:src='&quot;https://www.google.com/jsapi&quot;'></script>
+  <script expr:src='&quot;http://livibetter.github.com/BloggerGadgets.js/BlogArchiveBar.js&quot;'></script>
+</b:includable>
+</b:widget>

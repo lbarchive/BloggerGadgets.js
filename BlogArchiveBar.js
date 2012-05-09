@@ -11,14 +11,15 @@ if (!jQuery)
 function draw_BlogArchiveBar() {
 
   var items = window.BlogArchiveItems;
-  if (!items)
-    $.map($('div.BlogArchive option'), function(item, idx){
+  if (!items) {
+    items = $.map($('div.BlogArchive option'), function(item, idx){
       var $item = $(item);
       var text = $item.text().replace(/ \(\d+\)$/, '');
       var count = parseInt($item.text().replace(/.* \(/, '').replace(')', ''));
       var href = $item.val();
       return [[text, count, href]];
     });
+  }
   items.reverse();
 
   $('#ArchiveList').empty().append($('<div/>').attr('id', 'BlogArchiveBarChart'));

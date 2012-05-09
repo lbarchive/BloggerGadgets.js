@@ -10,7 +10,7 @@ if (!jQuery)
 // Draw function
 function draw_BlogArchiveBar() {
 
-  var items = window.BlogArchiveItems;
+  var items = window.BlogArchiveBarItems;
   if (!items) {
     items = $.map($('div.BlogArchive option'), function(item, idx){
       var $item = $(item);

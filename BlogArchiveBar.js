@@ -17,10 +17,11 @@ function draw_BlogArchiveBar() {
       var text = $item.text().replace(/ \(\d+\)$/, '');
       var count = parseInt($item.text().replace(/.* \(/, '').replace(')', ''));
       var href = $item.val();
+      if (!href)
+        return null
       return [[text, count, href]];
     });
   }
-  items.reverse();
 
   $('#ArchiveList').empty().append($('<div/>').attr('id', 'BlogArchiveBarChart'));
 
@@ -42,6 +43,7 @@ function draw_BlogArchiveBar() {
       height: "100%"
     },
     hAxis: {
+      direction: -1,
       textPosition: 'none'
     },
     height: 100,

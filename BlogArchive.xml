@@ -24,12 +24,12 @@
   <script>
     (function(){
       function _(href, text, count) {
-        var $li = $('<li/>', {class: 'archivedate'})
+        var $li = $('<li/>', {'class': 'archivedate'})
             .append($('<a/>', {href: href, text: text}))
             .append(' (' + count + ')');
         return $li;
         }
-      $('<ul/>', {class: 'flat'})<b:loop values='data:data' var='i'>
+      $('<ul/>', {'class': 'flat'})<b:loop values='data:data' var='i'>
         .append(_("<data:i.url/>", "<data:i.name/>", <data:i.post-count/>))</b:loop>
         .appendTo($("#<data:widget.instanceId/>_ArchiveList"));
     })();

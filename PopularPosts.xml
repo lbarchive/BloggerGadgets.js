@@ -9,16 +9,16 @@
         return $('<a/>', {href: href, html: title});
       }
       function _div(href, title) {
-        return $('<div/>', {class: 'item-title'})
+        return $('<div/>', {'class': 'item-title'})
                .append($('<a/>', {href: href, html: title}));
       }
       function _s(snippet) {
-        return $('<div/>', {class: 'item-snippet', html: snippet});
+        return $('<div/>', {'class': 'item-snippet', html: snippet});
       }
       function _thumb(href, height, width, src) {
         var $a = $('<a/>', {href: href, target: '_blank'})
                  .append($('<img/>', {alt: '', border: '0', height: height, width: width, src: src}));
-        return $('<div/>', {class: 'item-thumbnail'}).append($a);
+        return $('<div/>', {'class': 'item-thumbnail'}).append($a);
       }
     <b:if cond='data:showThumbnails == &quot;false&quot;'>
       <b:if cond='data:showSnippets == &quot;false&quot;'>
@@ -34,7 +34,7 @@
       <b:if cond='data:showSnippets == &quot;false&quot;'>
       <!-- (3) Show only thumbnails -->
       $("#<data:widget.instanceId/>_PopularPosts")<b:loop values='data:posts' var='post'>
-        .append($('<div/>', {class: 'item-thumbnail-only'})
+        .append($('<div/>', {'class': 'item-thumbnail-only'})
           .append($('<li/>').append(<b:if cond='data:post.thumbnail'>
             _thumb("<data:post.href/>", "<data:thumbnailSize/>", "<data:thumbnailSize/>", "<data:post.thumbnail/>"),</b:if>
             _("<data:post.href/>", "<data:post.title/>"))))
@@ -42,7 +42,7 @@
       <b:else/>
       <!-- (4) Show snippets and thumbnails -->
       $("#<data:widget.instanceId/>_PopularPosts")<b:loop values='data:posts' var='post'>
-        .append($('<div/>', {class: 'item-content'})
+        .append($('<div/>', {'class': 'item-content'})
           .append($('<li/>').append(<b:if cond='data:post.thumbnail'>
             _thumb("<data:post.href/>", "<data:thumbnailSize/>", "<data:thumbnailSize/>", "<data:post.thumbnail/>"),</b:if>
             _("<data:post.href/>", "<data:post.title/>"),
